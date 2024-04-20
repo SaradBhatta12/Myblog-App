@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import MultiActionAreaCard from "../comp/Card";
 import axios from "axios";
-const page = () => {
+const Page = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     const getData = async () => {
@@ -35,4 +35,4 @@ const page = () => {
   }
 };
 
-export default page;
+export default Page;

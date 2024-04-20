@@ -2,8 +2,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MultiActionAreaCard from "../comp/Card";
-const page = () => {
+
+const Page = () => {
   const [data, setData] = useState([]);
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -17,6 +19,7 @@ const page = () => {
     };
     getData();
   }, []);
+
   return (
     <div className="mt-8 mb-8 flex flex-wrap justify-center gap-5 ">
       {data.map((item, index) => (
@@ -26,4 +29,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

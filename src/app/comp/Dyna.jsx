@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { CiMenuKebab } from "react-icons/ci";
 import { FaArrowsTurnRight } from "react-icons/fa6";
