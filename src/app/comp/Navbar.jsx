@@ -6,7 +6,12 @@ import { FiUpload } from "react-icons/fi";
 const Navbar = () => {
   return (
     <div className=" flex justify-center items-center w-full flex-col">
-      <img src="logo-main.png" alt="" id="Logo" />
+      <img
+        src="logo-main.png"
+        alt=""
+        id="Logo"
+        className=" h-[200px] w-[350px]"
+      />
       <div className="type p-2 text-2xl font-bold mb-3">
         <TypewriterComponent
           options={{

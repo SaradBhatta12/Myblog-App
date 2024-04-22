@@ -5,7 +5,9 @@ import axios from "axios";
 import Link from "next/link";
 const Page = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
+    setLoading(true);
     const getData = async () => {
       try {
         const res = await axios.get(
@@ -14,10 +16,15 @@ const Page = () => {
         setData(res.data.daily);
       } catch (error) {
         console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
       }
     };
     getData();
   }, []);
+  if (loading) {
+    return <div className=" text-center">Loading...</div>;
+  }
 
   if (data.length === 0) {
     return (

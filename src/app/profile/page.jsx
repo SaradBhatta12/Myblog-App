@@ -7,7 +7,8 @@ import Link from "next/link";
 import PupUp from "../comp/PupUp";
 
 const ProfilePage = () => {
-  let [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   // Sample user data
   const user = {
@@ -27,17 +28,24 @@ const ProfilePage = () => {
 
   useEffect(() => {
     const getPosts = async () => {
+      setLoading(true);
       try {
         const response = await axios.get(
           "http://localhost:3000/api/auth/getpost/all"
         );
         setPosts(response.data.allblogs);
       } catch (error) {
-        console.error("Error fetching posts:", error);
+        console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
     getPosts();
   }, []);
+
+  if (loading) {
+    return <div className="loading text-center">loading................</div>;
+  }
 
   return (
     <div className="container mx-auto p-4 mt-8">
