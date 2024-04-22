@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import MultiActionAreaCard from "../comp/Card";
 import axios from "axios";
+import Link from "next/link";
 const Page = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -28,7 +29,11 @@ const Page = () => {
     return (
       <div className="mt-8 mb-8 flex flex-wrap justify-center gap-5 ">
         {data.map((item, index) => {
-          return <MultiActionAreaCard key={index} item={item} />;
+          return (
+            <Link href={`/dailylife/${item._id}`}>
+              <MultiActionAreaCard key={index} item={item} />
+            </Link>
+          );
         })}
       </div>
     );

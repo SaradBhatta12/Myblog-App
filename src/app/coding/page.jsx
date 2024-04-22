@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MultiActionAreaCard from "../comp/Card";
+import Link from "next/link";
 
 const Page = () => {
   const [data, setData] = useState([]);
@@ -23,7 +24,9 @@ const Page = () => {
   return (
     <div className="mt-8 mb-8 flex flex-wrap justify-center gap-5 ">
       {data.map((item, index) => (
-        <MultiActionAreaCard key={index} item={item} />
+        <Link href={`/coding/${item._id}`}>
+          <MultiActionAreaCard key={index} item={item} />
+        </Link>
       ))}
     </div>
   );

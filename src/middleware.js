@@ -16,5 +16,5 @@ export function middleware(request) {
 
 export const config = {
   //protected routes
-  matcher: ["/postcreateion"],
+  matcher: ["/postcreateion", "/profile"],
 };

@@ -1,12 +1,31 @@
+"use client";
 import Dyna from "@/app/comp/Dyna";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import axios from "axios";
+const Page = () => {
+  const { id } = useParams();
+  const [value, setValue] = useState({});
+  useEffect(() => {
+    const getData = async () => {
+      const data = await axios.get(
+        `http://localhost:3000/api/auth/getpost/mypractice/${id}`
+      );
+      setValue(data.data.data);
+    };
+    getData();
+  }, [id]);
 
-const page = () => {
   return (
     <div className="mt-8">
-      <Dyna />
+      <Dyna
+        date={value.createdAt}
+        title={value.title}
+        description={value.description}
+        image={value.image}
+      />
     </div>
   );
 };
 
-export default page;
+export default Page;

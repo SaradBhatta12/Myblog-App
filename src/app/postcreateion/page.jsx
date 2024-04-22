@@ -3,8 +3,10 @@ import axios from "axios";
 import React, { useState } from "react";
 import { FiUpload } from "react-icons/fi";
 import toast, { Toaster } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const UploadForm = () => {
+  const router = useRouter();
   const [file, setFile] = useState(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -38,6 +40,9 @@ const UploadForm = () => {
       setFile(null);
       setTitle("");
       setDescription("");
+      setCatagories("");
+      // Redirect to the home page after successful submission
+      router.push("/profile");
     } catch (error) {
       console.log(error);
     }
