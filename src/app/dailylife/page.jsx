@@ -38,7 +38,7 @@ const Page = () => {
         {data.map((item, index) => {
           return (
             <Link href={`/dailylife/${item._id}`}>
-              <MultiActionAreaCard key={index} item={item} />
+              <MultiActionAreaCard key={item._id} item={item} />
             </Link>
           );
         })}

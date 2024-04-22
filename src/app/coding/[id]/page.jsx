@@ -4,7 +4,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import axios from "axios";
 
-const page = () => {
+const Page = () => {
+  // Change 'page' to 'Page'
   let [value, setValue] = useState({});
   let [user, setUser] = useState({});
   console.log(user);
@@ -18,7 +19,7 @@ const page = () => {
       setUser(response.data.User);
     };
     getData();
-  }, []);
+  }, [id]); // Include 'id' in dependency array
   return (
     <div className="mt-8">
       <Dyna
@@ -31,4 +32,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page; // Export 'Page' instead of 'page'
