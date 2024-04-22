@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Blog Application
 
-First, run the development server:
+This Blog app is a full-stack app on Next.js, enabling easy sharing of daily life anecdotes, activities, and musings. Seamlessly create, edit, and delete posts for a hassle-free blogging experience. Join me in sharing experiences and reflections!
+
+
+## Tech Stack
+
+**Client:** React, TailwindCSS,Next js
+
+**Server:** Node js , Express js
+
+
+## Screenshots
+
+![App Screenshot](https://raw.githubusercontent.com/SaradBhatta12/Myblog-App/main/Screenshot%20from%202024-04-22%2011-26-58.png)
+
+
+## Installation
+First you need to clone repository  with given command 
+```bash
+  git clone https://github.com/SaradBhatta12/Myblog-App.git
+  cd Myblog-App
+```
+You need to set your own given env veriables 
+```bash
+GITHUB_ID 
+GITHUB_SECRET 
+MONGO_URI
+JWT_SECRET
+
+with cloudinary 
+  cloud_name
+  api_key
+  api_secret
+
+```
+After setting env veriables you need to
+Install all dependencies with npm given command
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  npm install 
 ```
+After the  Installation you need to run the project with given command 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```bash
+  npm run dev or npm yarn dev
+```
+All Set 
+## Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- CURD Operation
+- Live previews
+- Fullscreen mode
+- Cross platform
+- Fully Responsive 
+- Smooth and best UI/UX
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
