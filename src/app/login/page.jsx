@@ -20,7 +20,7 @@ const LoginForm = () => {
       });
 
       toast.success(result.data.message);
-      router.push("/postcreateion");
+      if (result.status === 200) router.push("/profile");
     } catch (error) {
       router.push("/login");
       toast.error(error.response.data.message);

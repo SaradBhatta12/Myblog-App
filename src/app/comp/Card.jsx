@@ -10,6 +10,7 @@ export default function MultiActionAreaCard({ item }) {
 
   return (
     <Card
+      key={item._id}
       sx={{ maxWidth: 345, backgroundColor: "rgba(0, 0, 0, 0.5)" }}
       className="border border-white p-1"
     >

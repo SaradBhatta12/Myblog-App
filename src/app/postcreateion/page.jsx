@@ -38,6 +38,7 @@ const UploadForm = () => {
       );
 
       toast.success(response.data.message);
+      console.log(response.data);
       // Reset form fields after submission
       setFile(null);
       setTitle("");

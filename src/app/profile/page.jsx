@@ -4,7 +4,6 @@ import { FaEdit, FaTrash, FaShare } from "react-icons/fa";
 import ProfilePost from "../comp/ProfilePost";
 import axios from "axios";
 import Link from "next/link";
-import PupUp from "../comp/PupUp";
 
 const ProfilePage = () => {
   const [posts, setPosts] = useState([]);

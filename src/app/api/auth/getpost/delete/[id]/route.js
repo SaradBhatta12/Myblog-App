@@ -3,10 +3,13 @@ import blog from "@/model/blog.models";
 import { connectDB } from "@/db/connectDB";
 connectDB();
 
-export const GET = async (req, { params }) => {
+export const DELETE = async (req, { params }) => {
   try {
     let id = params.id;
-    await blog.findByIdAndDelete(id);
+    let blogData = await blog.findById(id);
+    if (blogData === null)
+      NextResponse.json({ message: "Blog not found", status: 404 });
+    await blog.deleteOne(blogData);
     return NextResponse.json({
       message: "Blog deleted successfully",
       status: 200,
