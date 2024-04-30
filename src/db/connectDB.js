@@ -3,7 +3,6 @@ export const connectDB = async () => {
   mongoose
     .connect(process.env.MONGO_URI, {
       dbName: "blog-sarad",
-      useNewUrlParser: true,
     })
     .then(() => {
       console.log("DB Connected");
