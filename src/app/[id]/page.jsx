@@ -12,7 +12,7 @@ const Page = () => {
     const getData = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/auth/getpost/all/${id}`
+          `https://sarad-scribble.vercel.app/api/auth/getpost/all/${id}`
         );
         if (res.data.error.name === "CastError") {
           return (

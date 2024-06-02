@@ -28,7 +28,7 @@ const UploadForm = () => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:3000/api/auth/blogpost",
+        "https://sarad-scribble.vercel.app/api/auth/blogpost",
         formdata,
         {
           headers: {

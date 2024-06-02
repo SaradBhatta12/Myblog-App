@@ -11,7 +11,7 @@ const Page = () => {
     const getData = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3000/api/auth/getpost/mypractice"
+          "https://sarad-scribble.vercel.app/api/auth/getpost/mypractice"
         );
         setData(res.data.daily);
       } catch (error) {

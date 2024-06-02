@@ -30,7 +30,7 @@ const ProfilePage = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/auth/getpost/all"
+          "https://sarad-scribble.vercel.app/api/auth/getpost/all"
         );
         setPosts(response.data.allblogs);
       } catch (error) {

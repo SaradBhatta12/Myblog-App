@@ -13,7 +13,7 @@ const Page = () => {
       try {
         setLoading(true);
         const res = await axios.get(
-          "http://localhost:3000/api/auth/getpost/coding"
+          "https://sarad-scribble.vercel.app/api/auth/getpost/coding"
         );
         setData(res.data.coding);
       } catch (error) {
