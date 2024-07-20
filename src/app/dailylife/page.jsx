@@ -35,7 +35,7 @@ const Page = () => {
       <div className="mt-8 mb-8 flex flex-wrap justify-center gap-5 ">
         {data.map((item, index) => {
           return (
-            <Link href={`/dailylife/${item._id}`}>
+            <Link href={`/dailylife/${item._id}`} key={index}>
               <MultiActionAreaCard item={item} />
             </Link>
           );
