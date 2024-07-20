@@ -8,16 +8,23 @@ const Page = () => {
   // Change 'page' to 'Page'
   let [value, setValue] = useState({});
   let [user, setUser] = useState({});
+  let [loading, setLoading] = useState(true);
   console.log(user);
   const { id } = useParams();
-  useEffect(() => {
-    const getData = async () => {
-      const response = await axios.get(`/api/auth/getpost/coding/${id}`);
-      setValue(response.data.data);
-      setUser(response.data.User);
-    };
-    getData();
-  }, [id]); // Include 'id' in dependency array
+  try {
+    useEffect(() => {
+      const getData = async () => {
+        const response = await axios.get(`/api/auth/getpost/coding/${id}`);
+        setValue(response.data.data);
+        setUser(response.data.User);
+      };
+      getData();
+    }, [id]); // Include 'id' in dependency array
+  } catch (error) {
+    console.log("failed to fetch", error);
+  } finally {
+    setLoading(false);
+  }
   return (
     <div className="mt-8">
       <Dyna

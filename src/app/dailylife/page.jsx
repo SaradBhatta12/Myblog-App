@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import MultiActionAreaCard from "../comp/Card";
 import axios from "axios";
+import Loading from "../comp/Loading";
 import Link from "next/link";
 const Page = () => {
   const [data, setData] = useState([]);
@@ -21,7 +22,7 @@ const Page = () => {
     getData();
   }, []);
   if (loading) {
-    return <div className=" text-center">Loading...</div>;
+    return <Loading />;
   }
 
   if (data.length === 0) {

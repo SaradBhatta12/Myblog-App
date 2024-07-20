@@ -4,6 +4,7 @@ import { FaEdit, FaTrash, FaShare } from "react-icons/fa";
 import ProfilePost from "../comp/ProfilePost";
 import axios from "axios";
 import Link from "next/link";
+import Loading from "../comp/Loading";
 
 const ProfilePage = () => {
   const [posts, setPosts] = useState([]);
@@ -41,7 +42,7 @@ const ProfilePage = () => {
   }, []);
 
   if (loading) {
-    return <div className="loading text-center">loading................</div>;
+    return <Loading />;
   }
 
   return (

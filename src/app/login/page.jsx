@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
+import Loading from "../comp/Loading";
 
 const LoginForm = () => {
   let [email, setemail] = useState("");
@@ -30,7 +31,7 @@ const LoginForm = () => {
     }
   };
   if (loading) {
-    return <div className="loading text-center">loading ...............</div>;
+    return <Loading />;
   } else {
     return (
       <div className="min-h-screen flex items-center justify-center bg-black py-12 px-4 sm:px-6 lg:px-8">

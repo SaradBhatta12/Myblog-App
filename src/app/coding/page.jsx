@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MultiActionAreaCard from "../comp/Card";
 import Link from "next/link";
+import Loading from "../comp/Loading";
 
 const Page = () => {
   const [data, setData] = useState([]);
@@ -24,7 +25,7 @@ const Page = () => {
   }, []);
 
   if (loading) {
-    return <div className="text-center">Loading...</div>;
+    return <Loading />;
   } else {
     return (
       <div className="mt-8 mb-8 flex flex-wrap justify-center gap-5 ">

@@ -25,7 +25,6 @@ export const POST = async (request) => {
     let image = await up.secure_url;
 
     // create blog
-
     let blognew = await blog.create({
       title,
       description,
@@ -34,7 +33,6 @@ export const POST = async (request) => {
       catagories,
     });
 
-    console.log(blognew);
     return NextResponse.json({
       success: true,
       message: "successfully post ",

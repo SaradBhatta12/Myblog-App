@@ -3,17 +3,26 @@ import MultiActionAreaCard from "./comp/Card";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Loading from "./comp/Loading";
 
 const Page = () => {
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
+  const [state, setState] = useState({
+    data: [],
+    loading: true,
+    error: null,
+  });
+
   const getData = async () => {
     try {
       const res = await axios.get(`/api/auth/getpost/all`);
-      setData(res.data.allblogs);
+      setState({ data: res.data.allblogs, loading: false, error: null });
     } catch (error) {
       console.error("Error fetching data:", error);
-      setError("Failed to load data. Please try again later.");
+      setState({
+        data: [],
+        loading: false,
+        error: "Failed to load data. Please try again later.",
+      });
     }
   };
 
@@ -21,17 +30,19 @@ const Page = () => {
     getData();
   }, []); // This will run only once when the component is mounted.
 
+  const { data, loading, error } = state;
+
+  if (loading) {
+    return <Loading />; // Display a loading spinner
+  }
+
   if (error) {
     return <div className="text-red-500">{error}</div>;
   }
 
-  if (data.length === 0) {
-    return <div className="text-center">Loading...</div>; // Display a loading message or spinner
-  }
-
   return (
     <div className="mt-8 mb-8 flex flex-wrap justify-center gap-5">
-      {data.map((item, index) => (
+      {data.map((item) => (
         <Link key={item._id} href={`/${item._id}`}>
           <MultiActionAreaCard item={item} />
         </Link>
