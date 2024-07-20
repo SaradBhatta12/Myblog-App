@@ -27,15 +27,11 @@ const UploadForm = () => {
     formdata.append("catagories", Catagories);
     try {
       setLoading(true);
-      const response = await axios.post(
-        "https://sarad-scribble.vercel.app/api/auth/blogpost",
-        formdata,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await axios.post(`/api/auth/blogpost`, formdata, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       toast.success(response.data.message);
       console.log(response.data);

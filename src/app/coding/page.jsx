@@ -12,9 +12,7 @@ const Page = () => {
     const getData = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(
-          "https://sarad-scribble.vercel.app/api/auth/getpost/coding"
-        );
+        const res = await axios.get(`/api/auth/getpost/coding`);
         setData(res.data.coding);
       } catch (error) {
         console.error("Error fetching data:", error);

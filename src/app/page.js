@@ -7,12 +7,9 @@ import Link from "next/link";
 const Page = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-
   const getData = async () => {
     try {
-      const res = await axios.get(
-        "https://sarad-scribble.vercel.app/api/auth/getpost/all"
-      );
+      const res = await axios.get(`/api/auth/getpost/all`);
       setData(res.data.allblogs);
     } catch (error) {
       console.error("Error fetching data:", error);

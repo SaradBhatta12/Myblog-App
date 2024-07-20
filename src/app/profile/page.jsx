@@ -29,9 +29,7 @@ const ProfilePage = () => {
     const getPosts = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(
-          "https://sarad-scribble.vercel.app/api/auth/getpost/all"
-        );
+        const response = await axios.get(`/api/auth/getpost/all`);
         setPosts(response.data.allblogs);
       } catch (error) {
         console.log(error);

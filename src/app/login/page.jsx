@@ -14,18 +14,16 @@ const LoginForm = () => {
     try {
       e.preventDefault();
       setLoading(true);
-      const result = await axios.post(
-        "https://sarad-scribble.vercel.app/api/auth/login",
-        {
-          email,
-          password,
-        }
-      );
+      const result = await axios.post(`/api/auth/login`, {
+        email,
+        password,
+      });
 
       toast.success(result.data.message);
       if (result.status === 200) router.push("/profile");
     } catch (error) {
       router.push("/login");
+      console.log(error.response);
       toast.error(error.response.data.message);
     } finally {
       setLoading(false);

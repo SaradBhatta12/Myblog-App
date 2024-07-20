@@ -11,9 +11,7 @@ const Page = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(
-          `https://sarad-scribble.vercel.app/api/auth/getpost/all/${id}`
-        );
+        const res = await axios.get(`/api/auth/getpost/all/${id}`);
         if (res.data.error.name === "CastError") {
           return (
             <div className="error text-white">

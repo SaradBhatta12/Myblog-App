@@ -8,9 +8,7 @@ const Page = () => {
   const [value, setValue] = useState({});
   useEffect(() => {
     const getData = async () => {
-      const data = await axios.get(
-        `https://sarad-scribble.vercel.app/api/auth/getpost/mypractice/${id}`
-      );
+      const data = await axios.get(`/api/auth/getpost/mypractice/${id}`);
       setValue(data.data.data);
     };
     getData();

@@ -18,7 +18,7 @@ export default function MultiActionAreaCard({ post }) {
   const deletePost = async () => {
     try {
       const response = await axios.delete(
-        `https://sarad-scribble.vercel.app/api/auth/getpost/delete/${post._id}`
+        `/api/auth/getpost/delete/${post._id}`
       );
       console.log("Post deleted:", response.data);
     } catch (error) {
@@ -86,9 +86,7 @@ const Popup = ({ setShow, id }) => {
   useEffect(() => {
     try {
       const getdata = async () => {
-        const resp = await axios.get(
-          `https://sarad-scribble.vercel.app/api/auth/getpost/all/${id}`
-        );
+        const resp = await axios.get(`/api/auth/getpost/all/${id}`);
         setNewData(resp.data.Blog);
       };
       getdata();
@@ -106,10 +104,7 @@ const Popup = ({ setShow, id }) => {
     formdata.append("file", file);
 
     try {
-      const res = await axios.post(
-        `https://sarad-scribble.vercel.app/api/auth/getpost/edit/${id}`,
-        formdata
-      );
+      const res = await axios.post(`/api/auth/getpost/edit/${id}`, formdata);
       console.log(res);
     } catch (error) {
       return error;

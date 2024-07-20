@@ -7,6 +7,7 @@ export default function NotFound() {
       <h2 className="text-3xl font-bold mb-4">404 - Not Found</h2>
       <p className="text-lg text-gray-600 mb-8">
         Sorry, the requested resource could not be found.
+        {/* {console.log(process.env.NODE_ENV)} */}
       </p>
       <Link href="/">
         <a className="flex items-center text-blue-500 hover:text-blue-700 transition duration-300 ease-in-out">

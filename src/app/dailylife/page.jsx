@@ -10,9 +10,7 @@ const Page = () => {
     setLoading(true);
     const getData = async () => {
       try {
-        const res = await axios.get(
-          "https://sarad-scribble.vercel.app/api/auth/getpost/mypractice"
-        );
+        const res = await axios.get(`/api/auth/getpost/mypractice`);
         setData(res.data.daily);
       } catch (error) {
         console.error("Error fetching data:", error);

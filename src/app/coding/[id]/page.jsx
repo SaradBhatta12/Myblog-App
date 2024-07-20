@@ -12,9 +12,7 @@ const Page = () => {
   const { id } = useParams();
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get(
-        `https://sarad-scribble.vercel.app/api/auth/getpost/coding/${id}`
-      );
+      const response = await axios.get(`/api/auth/getpost/coding/${id}`);
       setValue(response.data.data);
       setUser(response.data.User);
     };
