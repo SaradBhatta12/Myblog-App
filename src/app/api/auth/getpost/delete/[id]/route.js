@@ -13,8 +13,13 @@ export const DELETE = async (req, { params }) => {
     return NextResponse.json({
       message: "Blog deleted successfully",
       status: 200,
+      success: true,
     });
   } catch (error) {
-    return NextResponse.json({ message: "Something went wrong", status: 405 });
+    return NextResponse.json({
+      message: "Something went wrong",
+      success: false,
+      status: 405,
+    });
   }
 };

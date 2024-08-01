@@ -11,20 +11,11 @@ import { Button, CardActionArea, CardActions } from "@mui/material";
 import axios from "axios";
 import Link from "next/link";
 import { IoMdCloseCircle } from "react-icons/io";
+import PupUp from "./PupUp";
 
 export default function MultiActionAreaCard({ post }) {
+  const [popup, showPopUp] = useState(false);
   const [show, setShow] = useState(false);
-
-  const deletePost = async () => {
-    try {
-      const response = await axios.delete(
-        `/api/auth/getpost/delete/${post._id}`
-      );
-      console.log("Post deleted:", response.data);
-    } catch (error) {
-      console.error("Failed to delete the post:", error);
-    }
-  };
 
   return (
     <Card
@@ -51,9 +42,15 @@ export default function MultiActionAreaCard({ post }) {
           </Typography>
         </CardContent>
       </CardActionArea>
+      {popup ? <PupUp id={post._id} showPopUp={showPopUp} /> : ""}
+
       <CardActions className="flex justify-center gap-2">
         {/* Delete Post Button */}
-        <Button size="small" onClick={deletePost} aria-label="Delete Post">
+        <Button
+          size="small"
+          onClick={() => showPopUp(!popup)}
+          aria-label="Delete Post"
+        >
           <FaTrashAlt className="text-white text-2xl" />
         </Button>
 
@@ -112,42 +109,44 @@ const Popup = ({ setShow, id }) => {
   };
 
   return (
-    <div className="popup fixed bg-slate-500 top-[30%] rounded z-30 p-6 w-[300px] ">
-      <IoMdCloseCircle
-        className="text-white text-2xl absolute top-1 cursor-pointer right-1"
-        onClick={() => setShow(false)}
-      />
-      <form
-        className="flex flex-col gap-3 mt-2"
-        method="post"
-        onSubmit={submitHandler}
-      >
-        <input
-          type="text"
-          placeholder="Title"
-          className=" text-blue-950 rounded"
-          onChange={(e) => setTitle(e.target.value)}
-          defaultValue={NewData.title}
+    <>
+      <div className="popup fixed bg-slate-500 top-[30%] rounded z-30 p-6 w-[300px] ">
+        <IoMdCloseCircle
+          className="text-white text-2xl absolute top-1 cursor-pointer right-1"
+          onClick={() => setShow(false)}
         />
-        <textarea
-          name="description"
-          id="desc"
-          rows={"4"}
-          placeholder="Description"
-          onChange={(e) => setDescription(e.target.value)}
-          className="p-2 text-amber-950 rounded"
-          defaultValue={NewData.description}
-        ></textarea>
-        <input
-          type="text"
-          placeholder="Catagories"
-          className=" text-blue-950 rounded"
-          onChange={(e) => setCatagories(e.target.value)}
-          defaultValue={NewData.catagories}
-        />
-        <input type="file" onChange={(e) => setFile(e.target.files[0])} />
-        <button className="btn">Submit</button>
-      </form>
-    </div>
+        <form
+          className="flex flex-col gap-3 mt-2"
+          method="post"
+          onSubmit={submitHandler}
+        >
+          <input
+            type="text"
+            placeholder="Title"
+            className=" text-blue-950 rounded"
+            onChange={(e) => setTitle(e.target.value)}
+            defaultValue={NewData.title}
+          />
+          <textarea
+            name="description"
+            id="desc"
+            rows={"4"}
+            placeholder="Description"
+            onChange={(e) => setDescription(e.target.value)}
+            className="p-2 text-amber-950 rounded"
+            defaultValue={NewData.description}
+          ></textarea>
+          <input
+            type="text"
+            placeholder="Catagories"
+            className=" text-blue-950 rounded"
+            onChange={(e) => setCatagories(e.target.value)}
+            defaultValue={NewData.catagories}
+          />
+          <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+          <button className="btn">Submit</button>
+        </form>
+      </div>
+    </>
   );
 };

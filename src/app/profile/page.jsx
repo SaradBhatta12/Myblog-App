@@ -65,7 +65,11 @@ const ProfilePage = () => {
 
       <div className="posts flex justify-center align-middle m-3 flex-wrap gap-8">
         {posts.map((post, index) => {
-          return <ProfilePost key={index} post={post} />;
+          return (
+            <>
+              <ProfilePost key={index} post={post} />{" "}
+            </>
+          );
         })}
       </div>
     </div>
